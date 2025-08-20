@@ -3,6 +3,3 @@ person ={
     2:"iuwqhbdu",
     3:"reskijdsd",
 }
-
-
-̣.
