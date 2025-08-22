@@ -1,7 +1,10 @@
 class Person:
-    def __init__(self, name: str, age: int, email: str, phone: str):
+    def __init__(self, name: str, age: int, email: str, phone: str,country:str):
         if not name.strip():
             raise ValueError("Name cannot be empty.")
+        
+        if not country.strip():
+            raise ValueError("Country cannot be empty.")
 
         if not str(age).isdigit() or int(age) <= 0:
             raise ValueError("Age must be a positive number.")
@@ -16,6 +19,7 @@ class Person:
         self.age = int(age)
         self.email = email
         self.phone = phone
+        self.country = country
 
     def __str__(self):
-        return f"{self.name} ({self.age}) | {self.email} | {self.phone}"
+        return f"{self.name} ({self.age}) | {self.email} | {self.phone} | {self.country}"

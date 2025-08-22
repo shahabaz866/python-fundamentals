@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #fff8e1;
+            color: #333;
+            margin: 0;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff6f61;
+            margin-top: 30px;
+            font-size: 3em;
+        }
+        a.new-post {
+            display: inline-block;
+            background: #ffcc80;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .post {
+            background-color: #ffe0b2;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 5px #ccc;
+            transition: transform 0.2s;
+        }
+        .post:hover {
+            transform: scale(1.02);
+        }
+        .post h2 a {
+            color: #ff7043;
+            text-decoration: none;
+        }
+        .post h2 a:hover {
+            text-decoration: underline;
+        }
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #d84315;
+        }
+        .actions a:hover {
+            font-weight: bold;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ffcc80;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 My Blog</h1>
+    <a href="{% url 'post_create' %}" class="new-post">➕ New Post</a>
+    <hr>
+    {% for post in posts %}
+    <div class="post">
+        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.content|truncatewords:20 }}</p>
+        <div class="actions">
+            <a href="{% url 'post_update' post.pk %}">✏️ Edit</a> | 
+            <a href="{% url 'post_delete' post.pk %}">🗑️ Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

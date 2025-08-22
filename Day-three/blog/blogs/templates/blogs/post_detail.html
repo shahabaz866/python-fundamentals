@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e1f5fe;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #039be5;
+            text-align: center;
+            font-size: 3em;
+        }
+        .content {
+            background-color: #b3e5fc;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 8px #90caf9;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        small {
+            display: block;
+            margin-top: 10px;
+            color: #0277bd;
+        }
+        .actions a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .actions a:hover {
+            color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <div class="content">
+        <p>{{ post.content }}</p>
+        <small>Published on {{ post.created_at }}</small>
+    </div>
+    <div class="actions">
+        <a href="{% url 'post_update' post.pk %}">✏️ Edit</a> |
+        <a href="{% url 'post_delete' post.pk %}">🗑️ Delete</a> |
+        <a href="{% url 'post_list' %}">⬅️ Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Post</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffebee;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #e53935;
+            font-size: 2.5em;
+        }
+        form {
+            margin-top: 30px;
+        }
+        button {
+            background-color: #e53935;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #e53935;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <h1>🗑️ Are you sure you want to delete "<span style="color:#d32f2f">{{ post.title }}</span>"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'post_detail' post.pk %}">⬅️ Cancel</a>
+</body>
+</html>
