@@ -62,6 +62,15 @@
     </style>
 </head>
 <body>
+ 
+    {% if user.is_authenticated %}
+<form method="POST" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="logout-btn">Logout</button>
+</form>
+{% endif %}
+
+
     <h1>📝 My Blog</h1>
     <a href="{% url 'post_create' %}" class="new-post">➕ New Post</a>
     <hr>
