@@ -55,8 +55,8 @@
 #2. Check palindrome
 
 # using slicing
-s='madam'
-n=len(s)
+# s='madam'
+# n=len(s)
 # if s==s[::-1]:
 #         print(True)
 # else:
@@ -114,12 +114,91 @@ Input: "I love python programming" → Output: "programming" """
 👉 Input: "hello" → Output: "olleh"
 (Hint: build a new string character by character from the end)'''
 
-s="hello"
-rev=""
+# s="hello"
+# rev=""
 
-for i in range(len(s)-1,-1,-1):
-    rev+=s[i]
+# for i in range(len(s)-1,-1,-1):
+#     rev+=s[i]
 
 
-print(rev)
+# print(rev)
+# ----------------------------------------------
+"""Count consonants in a string
+👉 Input: "hello world" → Output: 7"""
 
+# s="hello world"
+
+# vowels=['a','e','i','o','u']
+# cnt=0
+# for i in s:
+#     if i not in vowels and i != ' ':
+#         cnt+=1
+
+
+# print(cnt)
+
+# -------------------------------------
+"""
+Find the most frequent character
+👉 Input: "success" → Output: "s"
+(Hint: keep a dictionary or manual counting)
+"""
+# s="success"
+
+# f={}
+
+# for i in s:
+#     if i in f:
+#         f[i]+=1
+#     else:
+#         f[i]=1
+
+# max_char= None
+# max_count= 0
+
+# for i in f:
+#     if f[i] > max_count:
+#         max_count = f[i]
+#         max_char = i
+
+# print(max_char)
+
+# max_char=""
+# max_cnt=0
+
+# for i in s:
+#     cnt=0
+#     for j in s:
+#         if i == j:
+#             cnt+=1
+#     if cnt > max_cnt:
+#             max_cnt= cnt
+#             max_char = i
+
+# print(max_char)
+
+
+# mx_chr=""
+# mx_cnt=0
+
+# for i in s:
+#     cnt=0
+#     for j in s:
+#         if i == j:
+#             cnt+=1
+#     if cnt > mx_cnt:
+#         mx_cnt = cnt
+#         mx_chr = i
+
+
+# print(mx_chr)
+
+
+x = '121'
+is_palindrome=True
+for i in range(len(x)//2):
+    if x[1::] == x[::-1]:
+        is_palindrome=False
+        break
+            
+print(is_palindrome)
